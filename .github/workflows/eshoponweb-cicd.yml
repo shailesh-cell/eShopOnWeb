@@ -9,7 +9,7 @@ env:
   LOCATION: CentralIndia
   TEMPLATE-FILE: infra/webapp.bicep
   SUBSCRIPTION-ID: f011dba6-a332-4d8f-9f44-1409e46578aa
-  WEBAPP-NAME: eshoponweb-webapp-cicd
+  WEBAPP-NAME: eshoponweb-webapp-cicd-${{ github.run_id }}
 
 
 jobs:
