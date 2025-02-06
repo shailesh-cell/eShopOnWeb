@@ -103,3 +103,15 @@ jobs:
       with:
         inlineScript: |
              az webapp deploy --name ${{ env.WEBAPP-NAME }} --resource-group ${{ env.RESOURCE-GROUP }} --src-path .net-app/app.zip --type zip
+
+    # Delete website and App Service Plan from Azure App Service using CLI
+    - name: Delete WebApp and App Service Plan
+      uses: Azure/cli@v2
+      with:
+        inlineScript: |
+            # Delete the WebApp
+              az webapp delete --name ${{ env.WEBAPP-NAME }} --resource-group ${{ env.RESOURCE-GROUP }}
+      
+            # Delete the App Service Plan (you need to specify the name of the plan)
+              az appservice plan delete --name ${{ env.WEBAPP-NAME }}-plan --resource-group ${{ env.RESOURCE-GROUP }}
+    
